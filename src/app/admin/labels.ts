@@ -66,6 +66,15 @@ export const FIELD_LABELS: Record<string, string> = {
   cooperationAreas: "Hansı sahələrdə əməkdaşlıq",
   serviceModel: "Xidmət modeli",
   notes: "Qeydlər / əlavə məlumat",
+  productionExists: "İstehsalat prosesi və avadanlıqlar",
+  productionAutomationLevel: "Avtomatlaşdırma səviyyəsi",
+  equipmentIntegrated: "Avadanlıq inteqrasiyası (ERP/CRM və s.)",
+  equipmentTech: "Avadanlıq texnologiyaları",
+  productionRealtimeTracking: "Real vaxt izləmə",
+  productionPerformanceControl: "Performans / nasazlıq nəzarəti",
+  productionAutomationNeeds: "Avtomatlaşdırma ehtiyacları",
+  productionFutureTech: "Gələcək texnologiya maraqları",
+  productionAutomationNotes: "Avtomatlaşdırma qeydləri / planlar",
 };
 
 const VALUE_LABELS: Record<string, Record<string, string>> = {
@@ -85,6 +94,7 @@ const VALUE_LABELS: Record<string, Record<string, string>> = {
   implementationTime: { "1month": "1 ay", "1-3months": "1–3 ay", "3-6months": "3–6 ay", "6plus": "6 ay+" },
   cooperation: { ready: "Bəli, hazırıq", "need-offer": "Bəli, qiymət lazımdır", undecided: "Qərar verməmişik", no: "Xeyr" },
   serviceModel: { project: "Layihə əsaslı", retainer: "Aylıq abunəlik", both: "Hər ikisi" },
+  productionAutomationLevel: { full: "Tam avtomatlaşdırılıb", partial: "Qismən", manual: "Əl ilə" },
   yes: { yes: "Bəli", no: "Xeyr", plan: "Planlı", need: "Lazımdır" },
   auto: { auto: "Avtomatlaşıb", manual: "Əl ilə", none: "Yoxdur" },
   interested: { interested: "Maraqlıdır", not: "Maraqsız", dontknow: "Bilmirəm" },
@@ -98,6 +108,26 @@ const ERP_SCOPE: Record<string, string> = { finance: "Maliyyə", sales: "Satış
 const NEEDED_SERVICES: Record<string, string> = {
   web: "Veb sayt", mobile: "Mobil tətbiq", crm: "CRM", erp: "ERP", automation: "Avtomatlaşdırma",
   security: "IT təhlükəsizlik", cloud: "Cloud", support: "IT dəstək", analytics: "Data analitika", hardware: "IT avadanlıq",
+};
+
+const EQUIPMENT_TECH: Record<string, string> = {
+  plc: "PLC",
+  scada: "SCADA",
+  "iot-sensors": "IoT sensorlar",
+  "realtime-monitoring": "Real-time monitorinq",
+};
+
+const PROD_AUTO_NEEDS: Record<string, string> = {
+  "production-line": "İstehsalat xətti",
+  "quality-control": "Keyfiyyətə nəzarət",
+  "warehouse-logistics": "Anbar və logistika",
+};
+
+const PROD_FUTURE_TECH: Record<string, string> = {
+  "smart-factory": "Smart Factory",
+  iiot: "IIoT",
+  ai: "AI",
+  "digital-twin": "Digital Twin",
 };
 
 export function getFieldLabel(key: string): string {
@@ -114,6 +144,9 @@ export function formatFieldValue(key: string, value: string | string[] | undefin
   if (key === "communicationTools") return arr.map((v) => COMM_LABELS[v] ?? v).join(", ");
   if (key === "erpScope") return arr.map((v) => ERP_SCOPE[v] ?? v).join(", ");
   if (key === "neededServices") return arr.map((v) => NEEDED_SERVICES[v] ?? v).join(", ");
+  if (key === "equipmentTech") return arr.map((v) => EQUIPMENT_TECH[v] ?? v).join(", ");
+  if (key === "productionAutomationNeeds") return arr.map((v) => PROD_AUTO_NEEDS[v] ?? v).join(", ");
+  if (key === "productionFutureTech") return arr.map((v) => PROD_FUTURE_TECH[v] ?? v).join(", ");
   const valueMap = VALUE_LABELS[key] ?? VALUE_LABELS.yes ?? VALUE_LABELS.auto ?? VALUE_LABELS.interested;
   if (valueMap && single in valueMap) return valueMap[single];
   if (["t1", "t2", "t3", "t4", "t5"].includes(key) && single in (VALUE_LABELS.yes ?? {})) return (VALUE_LABELS.yes as Record<string, string>)[single];

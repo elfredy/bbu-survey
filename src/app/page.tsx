@@ -1343,7 +1343,7 @@ export default function Home() {
                     11. Əməkdaşlıq
                   </h3>
                   <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-base font-medium text-emerald-300 ring-1 ring-emerald-400/50">
-                    Son addım
+                    Əməkdaşlıq
                   </span>
                 </div>
                 <div className="space-y-2">
@@ -1449,6 +1449,243 @@ export default function Home() {
                   Bu sorğunu doldurduğunuz üçün təşəkkür edirik. Cavablarınız əsasında
                   sizin üçün fərdi IT həll təklifi hazırlayacağıq.
                 </p>
+              </section>
+
+              {/* Bölmə 12 – İstehsalat avadanlıqları və avtomatlaşdırma vəziyyəti */}
+              <section className="space-y-4 rounded-2xl border border-white/8 bg-slate-950/60 p-4">
+                <div className="flex items-center justify-between gap-3 border-b border-white/5 pb-3">
+                  <h3 className="text-lg font-semibold text-slate-50">
+                    12. İstehsalat avadanlıqları və avtomatlaşdırma vəziyyəti
+                  </h3>
+                  <span className="rounded-full bg-sky-400/10 px-3 py-1 text-base font-medium text-sky-300 ring-1 ring-sky-400/40">
+                    yeni
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="text-base font-medium text-slate-200">
+                    Şirkətdə istehsalat prosesi və avadanlıqlar varmı?
+                  </p>
+                  <div className="space-y-1.5 text-base text-slate-100">
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="productionExists"
+                        value="yes"
+                        className="h-5 w-5 accent-sky-400"
+                      />
+                      <span>Mövcuddur</span>
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="productionExists"
+                        value="no"
+                        className="h-5 w-5 accent-sky-400"
+                      />
+                      <span>Mövcud deyil</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="text-base font-medium text-slate-200">
+                    İdarə olunması hansı səviyyədədir?
+                  </p>
+                  <div className="space-y-1.5 text-base text-slate-100">
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="productionAutomationLevel"
+                        value="full"
+                        className="h-5 w-5 accent-sky-400"
+                      />
+                      <span>Tam avtomatlaşdırılıb</span>
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="productionAutomationLevel"
+                        value="partial"
+                        className="h-5 w-5 accent-sky-400"
+                      />
+                      <span>Qismən</span>
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="productionAutomationLevel"
+                        value="manual"
+                        className="h-5 w-5 accent-sky-400"
+                      />
+                      <span>Əl ilə</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <p className="text-base font-medium text-slate-200">
+                      Avadanlıqlar digər sistemlərlə inteqrasiya olunubmu? (ERP, CRM və s.)
+                    </p>
+                    <div className="space-y-1.5 text-base text-slate-100">
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="equipmentIntegrated"
+                          value="yes"
+                          className="h-5 w-5 accent-sky-400"
+                        />
+                        <span>Bəli</span>
+                      </label>
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="equipmentIntegrated"
+                          value="no"
+                          className="h-5 w-5 accent-sky-400"
+                        />
+                        <span>Xeyr</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <p className="text-base font-medium text-slate-200">
+                      İstifadə olunan texnologiyalar
+                    </p>
+                    <div className="grid gap-1.5 text-base text-slate-100">
+                      {[
+                        { value: "plc", label: "PLC" },
+                        { value: "scada", label: "SCADA" },
+                        { value: "iot-sensors", label: "IoT sensorlar" },
+                        { value: "realtime-monitoring", label: "Real-time monitorinq" },
+                      ].map((opt) => (
+                        <label key={opt.value} className="flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            name="equipmentTech"
+                            value={opt.value}
+                            className="h-5 w-5 accent-sky-400"
+                          />
+                          <span>{opt.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <p className="text-base font-medium text-slate-200">
+                      İstehsalat prosesləri real vaxtda izlənilirmi?
+                    </p>
+                    <div className="space-y-1.5 text-base text-slate-100">
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="productionRealtimeTracking"
+                          value="yes"
+                          className="h-5 w-5 accent-sky-400"
+                        />
+                        <span>Bəli</span>
+                      </label>
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="productionRealtimeTracking"
+                          value="no"
+                          className="h-5 w-5 accent-sky-400"
+                        />
+                        <span>Xeyr</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-base font-medium text-slate-200">
+                      Performans (efficiency, downtime) və nasazlıqlar nəzarətdə saxlanılırmı?
+                    </p>
+                    <div className="space-y-1.5 text-base text-slate-100">
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="productionPerformanceControl"
+                          value="yes"
+                          className="h-5 w-5 accent-sky-400"
+                        />
+                        <span>Bəli</span>
+                      </label>
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="productionPerformanceControl"
+                          value="no"
+                          className="h-5 w-5 accent-sky-400"
+                        />
+                        <span>Xeyr</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <p className="text-base font-medium text-slate-200">
+                      Hansı sahələrdə avtomatlaşdırmaya ehtiyac var?
+                    </p>
+                    <div className="grid gap-1.5 text-base text-slate-100">
+                      {[
+                        { value: "production-line", label: "İstehsalat xətti" },
+                        { value: "quality-control", label: "Keyfiyyətə nəzarət" },
+                        { value: "warehouse-logistics", label: "Anbar və logistika" },
+                      ].map((opt) => (
+                        <label key={opt.value} className="flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            name="productionAutomationNeeds"
+                            value={opt.value}
+                            className="h-5 w-5 accent-sky-400"
+                          />
+                          <span>{opt.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-base font-medium text-slate-200">
+                      Gələcəkdə hansı texnologiyalara maraq göstərirsiniz?
+                    </p>
+                    <div className="grid gap-1.5 text-base text-slate-100">
+                      {[
+                        { value: "smart-factory", label: "Smart Factory" },
+                        { value: "iiot", label: "IIoT" },
+                        { value: "ai", label: "AI" },
+                        { value: "digital-twin", label: "Digital Twin" },
+                      ].map((opt) => (
+                        <label key={opt.value} className="flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            name="productionFutureTech"
+                            value={opt.value}
+                            className="h-5 w-5 accent-sky-400"
+                          />
+                          <span>{opt.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-base font-medium text-slate-200">
+                    Əlavə qeyd / planlar (istəyə bağlı)
+                  </label>
+                  <textarea
+                    name="productionAutomationNotes"
+                    className="min-h-[80px] w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-base text-slate-50 outline-none ring-1 ring-transparent transition focus:border-sky-400/60 focus:ring-sky-500/40"
+                    placeholder="Məsələn: hansı xəttdə problem var, hansı mərhələdə avtomatlaşdırma istəyirsiniz və s."
+                  />
+                </div>
               </section>
 
               <div className="mt-4 flex items-center justify-between gap-4 border-t border-white/5 pt-4">
